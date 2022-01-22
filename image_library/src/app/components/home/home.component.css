@@ -1,0 +1,37 @@
+
+.userInput {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userInput > * {
+    width: 100%;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 10px;
+    padding: 16px;
+  }
+  .search-box {
+      display:grid;
+      grid-column: 1/3;
+      grid-row: 1;
+  }
+  .btn-submit {
+      grid-column: 3;
+      grid-row:1;
+      border-radius: 20px;
+      padding-top: 15px;
+  }
+  .content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
+.btn-download {
+  background: #ebe7e7;
+  font-size: 15px;
+}

@@ -1,0 +1,22 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+    static_files: dist/image_library/\1
+    upload: dist/image_library/(.*)(|\.map)
+
+  - url: /(.*)
+    static_files: dist/image_library/index.html
+    upload: dist/image_library/index.html
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE

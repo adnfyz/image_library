@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+  <app-page-header></app-page-header>
+</mat-toolbar>
+    <form autocomplete="off" [formGroup]="searchForm" (ngSubmit)="getPhotosByKeyword()">
+      <div class="wrapper">
+        <div class="search-box">
+          <mat-form-field appearance="fill">
+            <mat-label>Search picture</mat-label>
+            <input matInput type="text" formControlName="keyword">
+          </mat-form-field>
+        </div>
+        <div class="btn-submit">
+          <button mat-raised-button color="accent">
+            <mat-icon>search</mat-icon>Search
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="content">
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let photo of photos">
+          <mat-card class="mat-elevation-z4" >
+            <!-- <mat-card-header>
+              <mat-card-title>Mountains {{num}}</mat-card-title>
+            </mat-card-header> -->
+            <img mat-card-image [src]="photo?.urls?.thumb">
+            <!-- <mat-card-content>
+              <p>
+                The Himalayas is a mountain range in Asia.
+              </p>
+            </mat-card-content> -->
+            <mat-card-actions>
+              <button mat-button class="btn-download">
+                <mat-icon>download</mat-icon>
+                  <span>Download</span>
+              </button>
+              <!-- <button mat-button>SHARE</button> -->
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      </div>
+  
+  <!-- <div class="container">
+    <mat-grid-list cols="4" rowHeight="2:1">
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <mat-card-title-group>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Small</mat-card-subtitle>
+            <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+          </mat-card-title-group>
+          <mat-card-content>
+            Content is written here
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <mat-card-title-group>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Small</mat-card-subtitle>
+            <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+          </mat-card-title-group>
+          <mat-card-content>
+            Content is written here
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> -->
