@@ -1,7 +1,7 @@
 steps:
   # Install node packages
-  - name: "gcr.io/cloud-builders/npm:latest"
-    args: ["install"]
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install", "--force"]
     dir: "image_library/image_library"
 
   # Build production package
