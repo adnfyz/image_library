@@ -6,7 +6,7 @@ steps:
 
   # Build production package
   # - name: "gcr.io/image-library-338318/ng"
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/image-library-338318/npm'
     args: [ 'run', 'build', '--prod' ]
 
   # Deploy to google cloud app engine
