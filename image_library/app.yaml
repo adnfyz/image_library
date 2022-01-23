@@ -1,14 +1,15 @@
-runtime: nodejs10
-env_variables:
-  NODE_ENV: production
+runtime: python27
+api_version: 1
+threadsafe: yes
 
 handlers:
+  - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+    static_files: dist/image_library/\1
+    upload: dist/image_library/(.*)(|\.map)
 
-  - url: /image_library/
-    static_files: dist/index.html
-    upload: dist/index.html
-  - url: /image_library/
-    static_dir: dist
+  - url: /(.*)
+    static_files: dist/image_library/index.html
+    upload: dist/image_library/index.html
 
 skip_files:
   - e2e/
