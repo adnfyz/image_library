@@ -12,12 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { DownloadImageComponent } from './components/download-image/download-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    DownloadImageComponent
   ],
   imports: [
     FormsModule,
@@ -37,6 +39,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
       multi: true 
     }
   ],
+  entryComponents:[DownloadImageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

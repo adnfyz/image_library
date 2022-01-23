@@ -4,12 +4,12 @@ threadsafe: yes
 
 handlers:
   - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
-    static_files: dist/image_library/\1
-    upload: dist/image_library/(.*)(|\.map)
+    static_files: image-lib/\1
+    upload: image-lib/(.*)(|\.map)
 
   - url: /(.*)
-    static_files: dist/image_library/index.html
-    upload: dist/image_library/index.html
+    static_files: image-lib/index.html
+    upload: image-lib/index.html
 
 skip_files:
   - e2e/
@@ -20,3 +20,4 @@ skip_files:
   - ^(.*/)?.*\.md$
   - ^(.*/)?.*\.yaml$
   - ^LICENSE
+

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
 import { RequestService } from 'src/app/services/request.service';
+import { DownloadImageComponent } from '../download-image/download-image.component';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,14 @@ export class HomeComponent implements OnInit {
   value = 'Clear me';
   hasSearched : boolean = false;
   isEmpty : boolean = false;
+  
 
   photos = [];
   
   constructor(
     private _fb : FormBuilder,
-    private requestService : RequestService
+    private requestService : RequestService,
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -41,6 +45,9 @@ export class HomeComponent implements OnInit {
   getPhotosByKeyword() {
     console.log('Calling Unsplash API', this.searchForm.value.keyword);
     let keyword = this.searchForm.value.keyword
+    if(!keyword) {
+      return;
+    }
     this.requestService.getPhotosByKeyword(keyword).subscribe(res => {
       this.photos = res['results'];
     })
@@ -50,5 +57,15 @@ export class HomeComponent implements OnInit {
     this.searchForm.patchValue({
       'keyword' : ''
     })
+  }
+  openDialog(photo: any){
+    console.log(photo);
+    const dialogRef = this.matDialog.open(DownloadImageComponent, {
+      data: photo
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
