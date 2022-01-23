@@ -1,11 +1,18 @@
 steps:
+# Install Angular
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install','-g','@angular/cli' ]
+    
   # Install node packages
   - name: 'gcr.io/cloud-builders/npm'
     args: [ 'install' ]
 
   # Build productive files
-  - name: 'gcr.io/image-library-338318/npm'
-    args: [ 'run', 'build', '--prod' ]
+    name: 'node:12'
+    entrypoint: npm
+    args: [ 'run', 'build', '--prod', '--aot' ]
+  # - name: 'gcr.io/image-library-338318/npm'
+  #   args: [ 'run', 'build', '--prod' ]
 
   # Deploy to google cloud app egnine
   - name: 'gcr.io/cloud-builders/gcloud'
