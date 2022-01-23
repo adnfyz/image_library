@@ -1,13 +1,12 @@
 steps:
   # Install node packages
-  - name: "gcr.io/image-library-338318/npm"
-    args: ["install"]
-    dir: "image_library"
+  - name: 'gcr.io/cloud-builders/npm'
+    args: [ 'install' ]
 
-  # Build production package
-  - name: "gcr.io/image-library-338318/ng"
+  # Build productive files
+  - name: 'gcr.io/cloud-builders/npm'
     args: [ 'run', 'build', '--prod' ]
 
-  # Deploy to google cloud app engine
-  - name: "gcr.io/image-library-338318/gcloud"
-    args: ["app", "deploy", "--version=prod"]
+  # Deploy to google cloud app egnine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', '--version=prod']
