@@ -1,6 +1,6 @@
-runtime: python27
-api_version: 1
-threadsafe: yes
+runtime: nodejs10
+env_variables:
+  NODE_ENV: production
 
 handlers:
 
@@ -13,7 +13,7 @@ handlers:
 skip_files:
   - e2e/
   - node_modules/
-  # - src/
+  - src/
   - ^(.*/)?\..*$
   - ^(.*/)?.*\.json$
   - ^(.*/)?.*\.md$
