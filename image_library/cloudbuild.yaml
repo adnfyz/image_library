@@ -1,6 +1,6 @@
 steps:
 # Install Angular
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/npm:7.5.1'
     args: ['install','-g','@angular/cli' ]
     
   # Install node packages
@@ -8,7 +8,7 @@ steps:
     args: [ 'install' ]
 
   # Build productive files
-  - name: 'gcr.io/image-library-338318/npm'
+  - name: 'gcr.io/image-library-338318/ng'
     args: [ 'run', 'build', '--prod', '--aot' ]
   # - name: 'gcr.io/image-library-338318/npm'
   #   args: [ 'run', 'build', '--prod' ]
