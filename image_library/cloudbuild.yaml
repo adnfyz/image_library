@@ -1,21 +1,15 @@
 steps:
-# Install Angular
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install','-g','@angular/cli' ]
-    
-  # Install node packages
-  - name: 'gcr.io/cloud-builders/npm:latest'
-    args: [ 'install', '--force' ]
-    # echo 'Packages passed Install Passed'
+# Install node packages
+  - name: "gcr.io/cloud-builders/npm:latest"
+    args: ["install"]
+    dir: "image_library/image_library"
 
-  # Build productive files
-  - name: 'gcr.io/image-library-338318/image_library/ng'
-    args: [ 'run', 'build', '--prod', '--aot' ]
-    # echo 'Packages Build Install Passed'
+  # Build production package
+  - name: "gcr.io/image-library-338318/ng"
+    args: ["build", "--prod"]
+    dir: "image_library/image_library"
 
-  # - name: 'gcr.io/image-library-338318/npm'
-  #   args: [ 'run', 'build', '--prod' ]
-
-  # Deploy to google cloud app egnine
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', '--version=prod']
+  # Deploy to google cloud app engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "--version=prod"]
+    dir: "image_library/image_library"
