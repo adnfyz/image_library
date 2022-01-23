@@ -9,7 +9,7 @@ steps:
     # echo 'Packages passed Install Passed'
 
   # Build productive files
-  - name: 'gcr.io/image_library/image-library-338318/ng'
+  - name: 'gcr.io/image-library-338318/image_library/ng'
     args: [ 'run', 'build', '--prod', '--aot' ]
     # echo 'Packages Build Install Passed'
 
