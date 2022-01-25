@@ -1,16 +1,22 @@
 
     <div class="content">
-      <mat-dialog-content style="padding-top: 4px">
-        <mat-card class="example-card">
-          <img
-            mat-card-image
-            [src]="photo?.urls?.regular"
-          />
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-            <button mat-button (click)="openDialog.close()">CLOSE</button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-dialog-content>
+        <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="33%">
+          <mat-card class="mat-dialog-container">
+            <img mat-card-image [src]="photo?.urls?.thumb">
+            <!-- <mat-card-content>
+              <p>
+                The Himalayas is a mountain range in Asia.
+              </p>
+            </mat-card-content> -->
+            <mat-card-actions>
+              <button mat-button class="btn-download" (click)="downloadImage('high')">
+                  <span>High Quality</span>
+              </button>
+              <button mat-button class="btn-download" (click)="downloadImage('medium')">
+                <span>Medium</span>
+              </button>
+              <!-- <button mat-button>SHARE</button> -->
+            </mat-card-actions>
+          </mat-card>
+        </div>
       </div>

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
@@ -10,20 +10,27 @@ import { RequestService } from 'src/app/services/request.service';
 export class DownloadImageComponent implements OnInit {
 
  constructor(@Inject(MAT_DIALOG_DATA) public photo: any,
+            private dialogRef: MatDialogRef<DownloadImageComponent>,
             private requestService: RequestService) {}
 
   ngOnInit() {
   }
-  download(size : string) {
-    this.requestService
+  downloadImage(size : string) {
     switch (size) {
-      case 'value':
+      case 'high':
         
+        break;
+      case 'medium':
+      
         break;
     
       default:
         break;
     }
+    this.closeDialog()
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }
